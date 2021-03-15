@@ -107,5 +107,27 @@ namespace Lab_1
             item_out = null;
             return false;
         }
+        //public SortedLinkedList copyReverse()
+        //{
+            //SortedLinkedList list_out = new SortedLinkedList();
+
+            //if (this.IsEmpty())
+            //    return list_out;
+            //else
+            //{
+            //    for (Node node = first; node != null; node = node.Next)
+            //    {
+            //        Node n = new Node(node.Data, list_out.first);
+
+            //    }
+            //    return list_out;
+            //}
+        //}
+        private void append(int item)
+        {
+            Node node = new Node(item, first);
+            first = node;
+            len++;
+        }
     }
 }
