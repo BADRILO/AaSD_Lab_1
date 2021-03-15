@@ -107,22 +107,15 @@ namespace Lab_1
             item_out = null;
             return false;
         }
-        //public SortedLinkedList copyReverse()
-        //{
-            //SortedLinkedList list_out = new SortedLinkedList();
+        public SortedLinkedList copyReverse()
+        {
+            SortedLinkedList list_out = new SortedLinkedList();
 
-            //if (this.IsEmpty())
-            //    return list_out;
-            //else
-            //{
-            //    for (Node node = first; node != null; node = node.Next)
-            //    {
-            //        Node n = new Node(node.Data, list_out.first);
+            for (Node node = first; node != null; node = node.Next)
+                list_out.append(node.Data);
 
-            //    }
-            //    return list_out;
-            //}
-        //}
+            return list_out;
+        }
         private void append(int item)
         {
             Node node = new Node(item, first);
