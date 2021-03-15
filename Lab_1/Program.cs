@@ -14,6 +14,8 @@ namespace Lab_1
             example.addItem(2);
             example.addItem(30);
             example.printList();
+            Console.WriteLine(example.deleteItem(10) ?? 0);
+            example.printList();
         }
     }
 }

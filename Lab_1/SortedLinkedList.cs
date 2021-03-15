@@ -47,6 +47,34 @@ namespace Lab_1
                 Console.WriteLine($"Node №{i++}: {pointer.Data}");
                 pointer = pointer.Next;
             }
+            Console.WriteLine();
+        }
+        public int? deleteItem(int item)
+        {
+            if (first.Data == item)
+            {
+                first = first.Next;
+                len--;
+                return item;
+            }
+            else
+            {
+                Node prev_node = first;
+                Node curr_node = first.Next;
+
+                while (curr_node != null)
+                {
+                    if (curr_node.Data == item)
+                    {
+                        prev_node.Next = curr_node.Next;
+                        len--;
+                        return item;
+                    }
+                    curr_node = curr_node.Next;
+                    prev_node = prev_node.Next;
+                }
+            }
+            return null;
         }
     }
 }
