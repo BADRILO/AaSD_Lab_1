@@ -7,6 +7,10 @@ namespace Lab_1
         private int len;
         private Node first;
 
+        public int Len
+        {
+            get {return len;}
+        }
         public SortedLinkedList()
         {
             this.len = 0;
