@@ -12,9 +12,13 @@ namespace Lab_1
             this.len = 0;
             this.first = null;
         }
+        public bool IsEmpty()
+        {
+            return len == 0;
+        }
         public void addItem(int item)
         {
-            if (len == 0 || item < first.Data)
+            if (this.IsEmpty() || item < first.Data)
             {
                 Node node = new Node(item, first);
                 first = node;
@@ -41,17 +45,24 @@ namespace Lab_1
         }
         public void printList()
         {
-            Node pointer = first;
-            for (int i = 1; pointer != null;)
+            if (this.IsEmpty())
+                Console.WriteLine("List is empty!");
+            else
             {
-                Console.WriteLine($"Node №{i++}: {pointer.Data}");
-                pointer = pointer.Next;
-            }
+                Node pointer = first;
+                for (int i = 1; pointer != null;)
+                {
+                    Console.WriteLine($"Node №{i++}: {pointer.Data}");
+                    pointer = pointer.Next;
+                }
+            }          
             Console.WriteLine();
         }
         public int? deleteItem(int item)
         {
-            if (first.Data == item)
+            if (this.IsEmpty())
+                Console.WriteLine("There is nothing to delete!");
+            else if (first.Data == item)
             {
                 first = first.Next;
                 len--;
