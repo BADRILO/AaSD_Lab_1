@@ -61,7 +61,7 @@ namespace Lab_1
         public int? deleteItem(int item)
         {
             if (this.IsEmpty())
-                Console.WriteLine("There is nothing to delete!");
+                Console.WriteLine("There is nothing to delete!\n");
             else if (first.Data == item)
             {
                 first = first.Next;
@@ -86,6 +86,22 @@ namespace Lab_1
                 }
             }
             return null;
+        }
+        public bool Search(int item, out int? item_out)
+        {
+            Node node = first;
+
+            while (node != null)
+            {
+                if (node.Data == item)
+                {
+                    item_out = item;
+                    return true;
+                }
+                node = node.Next;
+            }
+            item_out = null;
+            return false;
         }
     }
 }

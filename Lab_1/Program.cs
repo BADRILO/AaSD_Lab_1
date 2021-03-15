@@ -7,6 +7,8 @@ namespace Lab_1
         static void Main(string[] args)
         {
             SortedLinkedList example = new SortedLinkedList();
+            example.printList();
+            example.deleteItem(2);
             example.addItem(10);
             example.addItem(5);
             example.addItem(20);
