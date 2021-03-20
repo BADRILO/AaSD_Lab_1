@@ -2,10 +2,10 @@
 
 namespace Lab_1
 {
-    class SortedLinkedList
+    class SortedLinkedList<T>
     {
         private int len;
-        private Node first;
+        private Node<T> first;
 
         public int Len
         {
@@ -20,25 +20,25 @@ namespace Lab_1
         {
             return len == 0;
         }
-        public void addItem(int item)
+        public void addItem(T item)
         {
-            if (this.IsEmpty() || item < first.Data)
+            if (this.IsEmpty() || item < first)
             {
-                Node node = new Node(item, first);
+                Node<T> node = new Node<T>(item, first);
                 first = node;
                 len++;
             }
             else
             {
-                Node lower_node  = first;
-                Node bigger_node = first.Next;
+                Node<T> lower_node  = first;
+                Node<T> bigger_node = first.Next;
 
                 while (true)
                 {
-                    if (bigger_node == null || item < bigger_node.Data)
+                    if (bigger_node == null || item < bigger_node)
                     {
-                        Node node = new Node(item, bigger_node);
-                        lower_node.Next = node;
+                        Node<T> new_node = new Node<T>(item, bigger_node);
+                        lower_node.Next = new_node;
                         len++;
                         break;
                     }
@@ -53,7 +53,7 @@ namespace Lab_1
                 Console.WriteLine("List is empty!");
             else
             {
-                Node pointer = first;
+                Node<T> pointer = first;
                 for (int i = 1; pointer != null;)
                 {
                     Console.WriteLine($"Node №{i++}: {pointer.Data}");
@@ -62,11 +62,13 @@ namespace Lab_1
             }          
             Console.WriteLine();
         }
-        public int? deleteItem(int item)
+        public T deleteItem(T item)
         {
             if (this.IsEmpty())
+            {
                 Console.WriteLine("There is nothing to delete!\n");
-            else if (first.Data == item)
+            }
+            else if (first.Data.Equals(item))
             {
                 first = first.Next;
                 len--;
@@ -74,12 +76,12 @@ namespace Lab_1
             }
             else
             {
-                Node prev_node = first;
-                Node curr_node = first.Next;
+                Node<T> prev_node = first;
+                Node<T> curr_node = first.Next;
 
                 while (curr_node != null)
                 {
-                    if (curr_node.Data == item)
+                    if (curr_node.Data.Equals(item))
                     {
                         prev_node.Next = curr_node.Next;
                         len--;
@@ -89,36 +91,37 @@ namespace Lab_1
                     prev_node = prev_node.Next;
                 }
             }
-            return null;
+            return default(T);
         }
-        public bool Search(int item, out int? item_out)
-        {
-            Node node = first;
 
-            while (node != null)
-            {
-                if (node.Data == item)
-                {
-                    item_out = item;
-                    return true;
-                }
-                node = node.Next;
-            }
-            item_out = null;
-            return false;
-        }
-        public SortedLinkedList copyReverse()
-        {
-            SortedLinkedList list_out = new SortedLinkedList();
+        //public bool Search(int item, out int? item_out)
+        //{
+        //    Node<T> node = first;
 
-            for (Node node = first; node != null; node = node.Next)
-                list_out.append(node.Data);
+        //    while (node != null)
+        //    {
+        //        if (node.Data == item)
+        //        {
+        //            item_out = item;
+        //            return true;
+        //        }
+        //        node = node.Next;
+        //    }
+        //    item_out = null;
+        //    return false;
+        //}
+        //public SortedLinkedList copyReverse()
+        //{
+        //    SortedLinkedList list_out = new SortedLinkedList();
 
-            return list_out;
-        }
-        private void append(int item)
+        //    for (Node<T> node = this.first; node != null; node = node.Next)
+        //        list_out.append(node.Data);
+
+        //    return list_out;
+        //}
+        private void append(T item)
         {
-            Node node = new Node(item, first);
+            Node<T> node = new Node<T>(item, first);
             first = node;
             len++;
         }
