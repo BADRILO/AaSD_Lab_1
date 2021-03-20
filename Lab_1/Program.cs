@@ -7,6 +7,7 @@ namespace Lab_1
         static void Main(string[] args)
         {
             SortedLinkedList<int> example = new SortedLinkedList<int>();
+            int i;
             example.printList();
             example.deleteItem(2);
             example.addItem(10);
@@ -17,6 +18,7 @@ namespace Lab_1
             example.addItem(30);
             //example.printList();
             Console.WriteLine(example.deleteItem(35));
+            Console.WriteLine(example.Search(7, out i));
             example.printList();
         }
     }

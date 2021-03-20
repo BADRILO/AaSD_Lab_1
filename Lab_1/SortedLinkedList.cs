@@ -94,22 +94,22 @@ namespace Lab_1
             return default(T);
         }
 
-        //public bool Search(int item, out int? item_out)
-        //{
-        //    Node<T> node = first;
+        public bool Search(T item, out T item_out)
+        {
+            Node<T> node = first;
 
-        //    while (node != null)
-        //    {
-        //        if (node.Data == item)
-        //        {
-        //            item_out = item;
-        //            return true;
-        //        }
-        //        node = node.Next;
-        //    }
-        //    item_out = null;
-        //    return false;
-        //}
+            while (node != null)
+            {
+                if (node.Data.Equals(item))
+                {
+                    item_out = item;
+                    return true;
+                }
+                node = node.Next;
+            }
+            item_out = default(T);
+            return false;
+        }
         //public SortedLinkedList copyReverse()
         //{
         //    SortedLinkedList list_out = new SortedLinkedList();
