@@ -21,6 +21,23 @@ namespace Lab_1
                 int node_data = Int32.Parse(node.Data.ToString());
                 return item < node_data;
             }
+            else if (i is string)
+            {
+                string item = i.ToString();
+                string node_data = node.Data.ToString();
+                int item_count = 0;
+                int node_data_count = 0;
+
+                foreach (char c in item)
+                {
+                    item_count += (int)c;
+                }
+                foreach (char c in node_data)
+                {
+                    node_data_count += (int)c;
+                }
+                return item_count < node_data_count;
+            }
             else
             {
                 return false;

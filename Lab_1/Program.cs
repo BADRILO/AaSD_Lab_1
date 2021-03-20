@@ -6,19 +6,18 @@ namespace Lab_1
     {
         static void Main(string[] args)
         {
-            SortedLinkedList<int> example = new SortedLinkedList<int>();
-            int i;
+            SortedLinkedList<string> example = new SortedLinkedList<string>();
             example.printList();
-            example.deleteItem(2);
-            example.addItem(10);
-            example.addItem(5);
-            example.addItem(20);
-            example.addItem(15);
-            example.addItem(2);
-            example.addItem(30);
-            //example.printList();
-            Console.WriteLine(example.deleteItem(35));
-            Console.WriteLine(example.Search(7, out i));
+            example.deleteItem("a");
+            example.addItem("boi432gf78");
+            example.addItem("casfs");
+            example.addItem("dajgf8473tf");
+            example.addItem("efio3gt489t6r");
+            example.addItem("182fg48");
+            example.addItem("0iluw4yfg347");
+            example.printList();
+            Console.WriteLine(example.deleteItem("0"));
+            Console.WriteLine(example.Search("1", out string i));
             example.printList();
         }
     }

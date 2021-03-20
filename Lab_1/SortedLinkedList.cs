@@ -11,15 +11,18 @@ namespace Lab_1
         {
             get {return len;}
         }
+
         public SortedLinkedList()
         {
             this.len = 0;
             this.first = null;
         }
+
         public bool IsEmpty()
         {
             return len == 0;
         }
+
         public void addItem(T item)
         {
             if (this.IsEmpty() || item < first)
@@ -47,6 +50,7 @@ namespace Lab_1
                 }
             }
         }
+
         public void printList()
         {
             if (this.IsEmpty())
@@ -62,6 +66,7 @@ namespace Lab_1
             }          
             Console.WriteLine();
         }
+
         public T deleteItem(T item)
         {
             if (this.IsEmpty())
@@ -110,6 +115,7 @@ namespace Lab_1
             item_out = default(T);
             return false;
         }
+
         //public SortedLinkedList copyReverse()
         //{
         //    SortedLinkedList list_out = new SortedLinkedList();
