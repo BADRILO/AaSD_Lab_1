@@ -4,8 +4,8 @@ namespace Lab_1
 {
     class SortedLinkedList<T>
     {
-        private int len;
-        private Node<T> first;
+        protected int len;
+        protected Node<T> first;
 
         public int Len
         {
@@ -116,20 +116,15 @@ namespace Lab_1
             return false;
         }
 
-        //public SortedLinkedList copyReverse()
-        //{
-        //    SortedLinkedList list_out = new SortedLinkedList();
-
-        //    for (Node<T> node = this.first; node != null; node = node.Next)
-        //        list_out.append(node.Data);
-
-        //    return list_out;
-        //}
-        private void append(T item)
+        public LinkedList<T> copyReverse()
         {
-            Node<T> node = new Node<T>(item, first);
-            first = node;
-            len++;
+           LinkedList<T> list_out = new LinkedList<T>();
+
+            for (Node<T> node = this.first; node != null; node = node.Next)
+                list_out.append(node.Data);
+
+            return list_out;
         }
+        
     }
 }
